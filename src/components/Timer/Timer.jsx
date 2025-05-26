@@ -3,7 +3,7 @@ import './Timer.css'
 import data from '../../data.json'
 
 
-const Timer = () => {
+const Timer = ({userData}) => {
 
   const currentDay = new Date().toLocaleDateString('es-ES', { weekday: 'long' });
   const [time, setTime] = useState("00:00:00")
@@ -12,8 +12,8 @@ const Timer = () => {
   const [color, setColor] = useState({})
 
 
-  const entrada = data.semana[currentDay].entrada;
-  const salida = data.semana[currentDay].salida;
+  const entrada = userData.semana[currentDay].entrada;
+  const salida = userData.semana[currentDay].salida;
 
   const convertTimeToNumber = (time) => {
     const [hours, minutes] = time.split(':').map(Number);
