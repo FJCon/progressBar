@@ -1,0 +1,51 @@
+{
+    "username" : "Fernando",
+    "firstTime" : true,
+    "semana":{   
+        "lunes":{
+            "entrada":"7:00",
+            "salida":"16:00"
+        },
+        "martes":{
+            "entrada":"7:00",
+            "salida":"16:00"
+        },
+        "miercoles":{
+            "entrada":"7:00",
+            "salida":"16:00"
+        },
+        "jueves":{
+            "entrada":"7:00",
+            "salida":"16:00"
+        },
+        "viernes":{
+            "entrada":"7:00",
+            "salida":"15:00"
+        },
+        "sabado":{
+            "entrada":"",
+            "salida":""
+        },
+        "domingo":{
+            "entrada":"",
+            "salida":""
+        }
+    },
+    "colour":{
+        "33":{
+            "initial": "#FF0000",
+            "half": "#FD1D1D",
+            "final": "#FC9608"
+        },
+        "66":{
+            "initial": "#FC9608",
+            "half": "#FDBE1D",
+            "final": "#FCF808"
+        },
+        "100":{
+            "initial": "#B7FC08",
+            "half": "#6AFF00",
+            "final": "#379404"
+        }
+    }
+}

@@ -1,46 +1,74 @@
-import React, { use, useState } from 'react'
+import { useEffect, useState } from 'react'
+import './Timer.css'
+import data from '../../data.json'
 
 
 const Timer = () => {
 
-    const [time, setTime] = useState('00:00:00');
-    const [shortTime,setShortTime] = useState('00:00');
-    const [startTimer, setStartTime] = useState('07:00');
-    const [endTime, setEndTime] = useState('16:00');
-    const [totalTime, setTotalTime] = useState('09:00');
-    const [porcentage, setPorcentage] = useState(0);
+  const currentDay = new Date().toLocaleDateString('es-ES', { weekday: 'long' });
+  const [time, setTime] = useState("00:00:00")
+  const [day, setDay] = useState(currentDay.toUpperCase())
+  const [rangeValue, setRangeValue] = useState(0)
+  const [color, setColor] = useState({})
 
 
+  const entrada = data.semana[currentDay].entrada;
+  const salida = data.semana[currentDay].salida;
 
+  const convertTimeToNumber = (time) => {
+    const [hours, minutes] = time.split(':').map(Number);
+    return hours + (minutes / 60);
+  }
+
+  const tiempoTotal = convertTimeToNumber(salida) - convertTimeToNumber(entrada);
+  const tiempoTranscurrido = convertTimeToNumber(time.slice(0, 5)) - convertTimeToNumber(entrada);
+  const porcentaje = (tiempoTranscurrido / tiempoTotal) * 100;
+
+
+  const showCurrentTime = () => {
     setInterval(() => {
-        const currentTime = new Date().toLocaleTimeString()
-        const shortCurrentTime = currentTime.slice(0, 4)
-        const calcTotalTime = convertirHoraANumero(endTime) - convertirHoraANumero(startTimer)
-        const calcLeftTime = convertirHoraANumero(currentTime) - convertirHoraANumero(startTimer)
-        const porc = (calcLeftTime / calcTotalTime) * 100
-        setTotalTime(calcTotalTime)
-        setPorcentage(porc)
+      const currentTime = new Date().toLocaleTimeString()
+      setTime(currentTime)
 
-       setTime(currentTime)
-       setShortTime(shortCurrentTime)
+
+      if (porcentaje != rangeValue && porcentaje > 0) {
+        setRangeValue(porcentaje)
+        setRangeValue(Math.round(porcentaje))
+
+        if (porcentaje <= 33) {
+          setColor(data.colour[33])
+        } else if (porcentaje > 33 && porcentaje <= 66) {
+          setColor(data.colour[66])
+        }
+        else if (porcentaje > 66 && porcentaje <= 100) {
+          setColor(data.colour[100])
+        }
+
+      }
+
     }, 1000)
+  }
 
-
+  showCurrentTime();
 
   return (
-    <div>
-        <div>{'Current: ' + time}</div>
-        <div>{'Sliced: ' +shortTime}</div>
-        <div>  {totalTime}</div>
-        <div>{porcentage}</div>
-    </div>
+    <>
+      <div className="header">
+        <div className='header-container'>
+          <p>Hola {data.username}</p>
+          <h1> {day}  |  {time} </h1>
+        </div>
+      </div>
+      <div className="progress-container">
+        <p>{entrada}</p>
+        <div className="progress-bar">
+          <div className='bar' style={{ width: `${rangeValue}%`, backgroundImage: `linear-gradient(90deg,${color.initial} 0%, ${color.half} 50%, ${color.final} 100%)` }}>
+            <span>{rangeValue}%</span>
+          </div>
+        </div>
+        <p>{salida}</p>
+      </div>
+    </>
   )
 }
-
-function convertirHoraANumero(horaString) {
-  if (!horaString) return null;
-  const [horas, minutos] = horaString.split(':').map(Number);
-  return horas + minutos / 60;
-}
-
 export default Timer
