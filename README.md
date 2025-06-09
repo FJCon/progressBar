@@ -2,7 +2,7 @@
 El objetivo es aprender las bases del desarrollo con Electron haciendo incapie en la comunicacion entre el procesos Main y Render.
 
 ## ¿Qué hace esta aplicación?
-- Permite a los usuarios registrar su nombre y los horarios de trabajo para cada día de la
+- Permite a los usuarios registrar su nombre y los horarios de trabajo para cada día de la semana
 - Muestra una barra de progreso con un porcentaje que representa el porcentaje de la jornada laboral transcurrido.
 
 Ejemplo:
@@ -14,4 +14,4 @@ Un amigo está muy desmotivado y desanimado en un actual trabajo y en una charla
 
 >Lo único que me motiva es saber que a x hora, ya cumplí con la mitad de mi jornada laboral.
 
-Al escuchar ésto, me propuse a crearle una barra de progreso.
+Al escuchar ésto, me propuse crearle una barra de progreso.
