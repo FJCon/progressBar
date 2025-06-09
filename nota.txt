@@ -1,0 +1,2 @@
+- agregar sequelize para practica ORM con SQLite
+- Practicar IPC con consultas a DB
