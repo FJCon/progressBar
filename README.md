@@ -1,11 +1,12 @@
 # Practica de aplicacion Electron + React + SQL
-El objetivo es aprender las bases del desarrollo con Electron haciendo incapie en la comunicacion entre losgi procesos Main y Render.
+El objetivo es aprender las bases del desarrollo con Electron haciendo incapie en la comunicacion entre los procesos Main y Render.
 
 ## ¿Qué hace esta aplicación?
 - Permite a los usuarios registrar su nombre y los horarios de trabajo para cada día de la semana
 - Muestra un reloj en tiempo real
-- Muestra una barra de progreso con un porcentaje que representa el porcentaje de la jornada laboral transcurrido.
+- Muestra una barra de progreso que representa el porcentaje de la jornada laboral transcurrido.
 
+![Captura de pantalla](/public/00.png)
 Ejemplo:
 > Si un empleado registra que trabaja de 7:00 a 16:00, cuando el reloj marque las 11:30hs, la barra de progreso indicará que ya se ha cumplido un 50% de la jornada laboral, y mostrará un 75% cuando el reloj marque las 13:45hs.
 
