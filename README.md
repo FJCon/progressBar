@@ -1,5 +1,5 @@
 # Practica de aplicacion Electron + React + SQL
-El objetivo es aprender las bases del desarrollo con Electron haciendo incapie en la comunicacion entre los procesos Main y Render.
+**El objetivo es aprender las bases del desarrollo con Electron haciendo incapie en la comunicacion entre los procesos Main y Render.**
 
 ## ¿Qué hace esta aplicación?
 - Permite a los usuarios registrar su nombre y los horarios de trabajo para cada día de la semana
